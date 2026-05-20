@@ -16,3 +16,7 @@ def contato ():
 def usuario ():
     usuario = {' nome ': 'JP ', 'email ': 'joaopedropaulino122@gmail.com'}
     return render_template('index.html ', title = ' Página Inicial', usuario=usuario, nome=None  ) 
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
