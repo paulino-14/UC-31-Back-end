@@ -1,0 +1,23 @@
+body.tema-claro {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+body.tema-escuro {
+    background-color: #222;
+    color: #f5f5f5;
+}
+
+.card {
+    margin: 50px auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.botoes a {
+    margin: 10px;
+    text-decoration: none;
+    color: inherit;
+}

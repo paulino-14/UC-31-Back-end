@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferências do Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="tema-{{ tema }}">
+    <div class="card">
+        <h1></h1>
+
+            <p>Bem-vindo de volta, {{ nome }}!</p>
+       
+            <form action="{{ url_for('salvar_nome') }}" method="POST">
+                <label>Digite seu nome:</label>
+                <input type="text" name="nome" required>
+                <button type="submit">Salvar</button>
+            </form>
+       
+
+        <h2>Tema atual: {{ tema }}</h2>
+        <div class="botoes">
+            <a href="{{ url_for('trocar_tema', escolha='claro') }}">Tema Claro</a>
+            <a href="{{ url_for('trocar_tema', escolha='escuro') }}">Tema Escuro</a>
+        </div>
+    </div>
+</body>
+</html>
