@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Livros Cadastrados</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f0f0f0; }
+        a.acao { margin-right: 10px; }
+        nav { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="{{ url_for('cadastro') }}">Cadastrar</a> |
+        <a href="{{ url_for('listar') }}">Listar Livros</a> |
+        <a href="{{ url_for('buscar') }}">Buscar</a>
+    </nav>
+
+    <h1>Livros Cadastrados</h1>
+
+    {% if livros|length == 0 %}
+        <p>Nenhum livro cadastrado.</p>
+    {% else %}
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Categoria</th>
+                <th>Qtd. disponível</th>
+                <th>Ações</th>
+            </tr>
+            {% for livro in livros %}
+            <tr>
+                <td>{{ livro.titulo }}</td>
+                <td>{{ livro.autor }}</td>
+                <td>{{ livro.ano }}</td>
+                <td>{{ livro.categoria }}</td>
+                <td>{{ livro.quantidade }}</td>
+                <td>
+                    <a class="acao" href="{{ url_for('editar', indice=loop.index0) }}">Editar</a>
+                    <a class="acao" href="{{ url_for('excluir', indice=loop.index0) }}"
+                       onclick="return confirm('Tem certeza que deseja excluir este livro?');">Excluir</a>
+                </td>
+            </tr>
+       
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Livro</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; }
+        input { width: 100%; padding: 6px; margin-top: 4px; box-sizing: border-box; }
+        button { margin-top: 15px; padding: 8px 16px; }
+        .resultado { margin-top: 20px; border: 1px solid #ccc; padding: 10px; }
+        .nao-encontrado { color: red; margin-top: 20px; }
+        nav { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="{{ url_for('cadastro') }}">Cadastrar</a> |
+        <a href="{{ url_for('listar') }}">Listar Livros</a> |
+        <a href="{{ url_for('buscar') }}">Buscar</a>
+    </nav>
+
+    <h1>Buscar Livro por Título</h1>
+
+    <form method="POST">
+        <label for="titulo">Título do livro</label>
+        <input type="text" name="titulo" id="titulo">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if pesquisado %}
+        {% if encontrado %}
+            <div class="resultado">
+                <p><strong>Título:</strong> {{ resultado.titulo }}</p>
+                <p><strong>Autor:</strong> {{ resultado.autor }}</p>
+                <p><strong>Ano:</strong> {{ resultado.ano }}</p>
+                <p><strong>Categoria:</strong> {{ resultado.categoria }}</p>
+                <p><strong>Quantidade disponível:</strong> {{ resultado.quantidade }}</p>
+            </div>
+        {% else %}
+            <p class="nao-encontrado">Livro não encontrado.</p>
+        {% endif %}
+    {% endif %}
+
+</body>
+</html>
