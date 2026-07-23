@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Cantinho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding-top: 60px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px 40px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #1e293b;
+        }
+        p {
+            font-size: 16px;
+            color: #334155;
+        }
+        .info {
+            margin: 6px 0;
+        }
+        .voltar {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #2563eb;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        .visitas {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Olá, {{ nome }}! Este é o seu cantinho secreto.</h1>
+
+        <p class="info"><strong>Cor favorita:</strong> {{ cor }}</p>
+        <p class="info"><strong>Linguagem favorita:</strong> {{ linguagem }}</p>
+        <p class="info"><strong>Frase que me representa:</strong> "{{ frase }}"</p>
+
+        <p class="visitas">Você visitou esse cantinho {{ visitas }} vez(es) hoje.</p>
+
+        <a href="{{ url_for('painel') }}" class="voltar">&larr; Voltar ao painel</a>
+    </div>
+</body>
+</html>
